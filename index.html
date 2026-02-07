@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #c9d1d9;
+            background-color: #0d1117;
+        }
+
+        nav {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            color: #c9d1d9;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #6d00d4;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6d00d4 0%, #4a0094 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .intro-bar {
+            background: #161b22;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 4rem;
+        }
+
+        .intro-bar h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border: none;
+            display: block;
+            color: #c9d1d9;
+        }
+
+        .intro-bar p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #8b949e;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #6d00d4;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #c9d1d9;
+            border-bottom: 3px solid #6d00d4;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6d00d4 0%, #4a0094 100%);
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: cover;
+            object-position: top;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            color: #8b949e;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #6d00d4;
+        }
+
+        .project-header {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #6d00d4 0%, #4a0094 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: #58a6ff;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            color: #8b949e;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            color: #6d00d4;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #161b22;
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            border-left: 4px solid #6d00d4;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #c9d1d9;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #8b949e;
+        }
+
+        .skill-category li:before {
+            content: "\25B8";
+            position: absolute;
+            left: 0;
+            color: #6d00d4;
+            font-size: 1.2rem;
+        }
+
+        .contact-content {
+            background: #161b22;
+            padding: 3rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #30363d;
+        }
+
+        .contact-content p {
+            color: #8b949e;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #6d00d4;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.3s;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            background: #5a00b3;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #161b22;
+            color: #8b949e;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #30363d;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content .hero-text {
+                order: 2;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-content div:has(.profile-image) {
+                order: 1;
+                margin: 0 auto;
+            }
+
+            .profile-image {
+                width: 300px;
+                height: 300px;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <h1>Adam's Portfolio</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Adam Rogers</h1>
+                <p>
+                    A driven Junior-Level Computer Engineering Student at Syracuse University
+                    passionate about
+                    Photonics, CPU Architecture Research and Design, and Experimental ROM Storage Applications.
+                    Having completed
+                    a breadth of computing core classes and skilled in Embedded C Programming, Debugging,
+                    VHDL/Verilog, EDA
+                    tools, and professional documentation drafting. He is currently employed by Huntington Ingalls
+                    Industries
+                    Mission Technologies as an Embedded Engineering Intern in Syracuse, NY.
+                </p>
+            </div>
+            <div>
+                <img src="assets/headshot.jpg" alt="Adam Rogers" class="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <section class="intro-bar">
+        <h2>Computer Engineering Student</h2>
+        <p>Syracuse University | Defense Contractor Intern</p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+    </section>
+
+    <div class="container">
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header"
+                        style="background: center / cover no-repeat url('assets/tcgplayer.png'); height: 200px;"></div>
+                    <div class="project-content">
+                        <h3>TCGPlayer Business Manager</h3>
+                        <p>Comprehensive business management application for Magic card sellers featuring shipping
+                            preset management, sales velocity tracking, inventory analytics, and automated pricing
+                            tools. Transitioned from Replit to local development for enhanced performance.</p>
+                        <p class="project-tech">React • TypeScript • Node.js • REST APIs</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">💎</div>
+                    <div class="project-content">
+                        <h3>DeFi Liquidity Management System</h3>
+                        <p>Automated Uniswap V3 liquidity provision system managing concentrated positions in WETH/USDC
+                            pairs. Implements divergence loss analysis, position rebalancing strategies, and MEV risk
+                            mitigation.</p>
+                        <p class="project-tech">Solidity • Web3.js • Ethereum • Uniswap V3</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">🔧</div>
+                    <div class="project-content">
+                        <h3>Embedded Systems Development</h3>
+                        <p>Register-level programming for STM32 and ATSAMD microcontrollers including GPIO
+                            configurations, LCD interface implementations, keypad matrix scanning, and sensor
+                            integration projects.</p>
+                        <p class="project-tech">C • ARM Cortex-M • CMOS Logic • Hardware Debugging</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">🎬</div>
+                    <div class="project-content">
+                        <h3>Jellyfin Media Server</h3>
+                        <p>Self-hosted media server with external access configuration using DuckDNS for dynamic DNS and
+                            Caddy reverse proxy for secure HTTPS connections. Enables remote streaming of personal media
+                            library.</p>
+                        <p class="project-tech">Jellyfin • Caddy • DuckDNS • Networking</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">⚡</div>
+                    <div class="project-content">
+                        <h3>Cryptocurrency Arbitrage Detection</h3>
+                        <p>Automated system for detecting arbitrage opportunities across DeFi protocols. Explores flash
+                            loan implementations and MEV strategies while analyzing cross-exchange price differentials.
+                        </p>
+                        <p class="project-tech">Python • Solidity • Flash Loans • DeFi Protocols</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">📷</div>
+                    <div class="project-content">
+                        <h3>IP Camera Integration</h3>
+                        <p>Custom integration project to bypass proprietary software limitations on IP cameras,
+                            implementing direct network access and custom control interfaces for enhanced functionality.
+                        </p>
+                        <p class="project-tech">Networking • Reverse Engineering • Python</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.location.href='portfolio.html'" style="cursor: pointer;">
+                    <div class="project-header">📂</div>
+                    <div class="project-content">
+                        <h3>e-Portfolio Documents</h3>
+                        <p>Collection of supporting documents including cover letters, job listings, and professional
+                            invitations. Click to view all documents.</p>
+                        <p class="project-tech">PDFs • Professional Documents</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>C/C++</li>
+                        <li>TypeScript/JavaScript</li>
+                        <li>Python</li>
+                        <li>Solidity</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Embedded Systems</h3>
+                    <ul>
+                        <li>STM32 Microcontrollers</li>
+                        <li>ATSAMD Series</li>
+                        <li>Register-level Programming</li>
+                        <li>CMOS Logic Design</li>
+                        <li>Hardware Debugging</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>REST APIs</li>
+                        <li>Database Design</li>
+                        <li>Full-Stack Development</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Blockchain & DeFi</h3>
+                    <ul>
+                        <li>Smart Contract Development</li>
+                        <li>Uniswap V3</li>
+                        <li>Web3 Integration</li>
+                        <li>MEV Analysis</li>
+                        <li>Flash Loan Protocols</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Systems & Networking</h3>
+                    <ul>
+                        <li>Computer Architecture</li>
+                        <li>Cache Memory Systems</li>
+                        <li>Network Security</li>
+                        <li>Linux System Administration</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Coursework</h3>
+                    <ul>
+                        <li>Quantum Mechanics</li>
+                        <li>Computer Architecture</li>
+                        <li>Cybersecurity</li>
+                        <li>Digital Logic Design</li>
+                        <li>Exploring Photonics/Optoelectronics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+                    I'm always interested in discussing new opportunities, technical projects, or collaboration ideas in
+                    embedded systems, blockchain, or software development.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:aroger12@syr.edu" class="contact-link">Email Me</a>
+                    <a href="https://github.com/Adaboss" class="contact-link" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/adam-rogers-ab9847379/" class="contact-link"
+                        target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Adam's Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
