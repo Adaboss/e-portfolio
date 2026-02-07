@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Portfolio Documents - Adam's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #c9d1d9;
+            background-color: #0d1117;
+        }
+
+        nav {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            color: #c9d1d9;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #6d00d4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #c9d1d9;
+            border-bottom: 3px solid #6d00d4;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .pdf-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pdf-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-header h3 {
+            font-size: 1.5rem;
+            color: #58a6ff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pdf-header p {
+            color: #8b949e;
+        }
+
+        .pdf-container {
+            width: 100%;
+            height: 800px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+        }
+
+        .fallback-link {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #8b949e;
+            text-align: right;
+        }
+
+        .fallback-link a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .fallback-link a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #161b22;
+            color: #8b949e;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #30363d;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <h1>Adam's Portfolio</h1>
+            <a href="index.html">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Main Page</a>
+
+        <div>
+            <h2>e-Portfolio Documents</h2>
+            <p style="margin-bottom: 3rem; color: #8b949e; font-size: 1.2rem;">
+                A collection of supporting documents, including cover letters, job listings, and professional
+                invitations.
+            </p>
+
+            <!-- International Document -->
+            <div class="pdf-section">
+                <div class="pdf-header">
+                    <h3><span style="font-size: 1.5em;">🌏</span> International Opportunity</h3>
+                    <p>Cover letter and job posting for international position.</p>
+                </div>
+                <embed class="pdf-container" src="assets/Intl Cover Letter and Job Posting.pdf"
+                    type="application/pdf" />
+                <p class="fallback-link">Unable to view PDF? <a href="assets/Intl Cover Letter and Job Posting.pdf"
+                        target="_blank">Download here</a>.</p>
+            </div>
+
+            <!-- Local Document -->
+            <div class="pdf-section">
+                <div class="pdf-header">
+                    <h3><span style="font-size: 1.5em;">🏙️</span> Local Opportunity</h3>
+                    <p>Local job listing and corresponding cover letter.</p>
+                </div>
+                <embed class="pdf-container" src="assets/Local Job Listing and Cover Letter.pdf"
+                    type="application/pdf" />
+                <p class="fallback-link">Unable to view PDF? <a href="assets/Local Job Listing and Cover Letter.pdf"
+                        target="_blank">Download here</a>.</p>
+            </div>
+
+            <!-- National Document -->
+            <div class="pdf-section">
+                <div class="pdf-header">
+                    <h3><span style="font-size: 1.5em;">🇺🇸</span> National Opportunity</h3>
+                    <p>National-level job listing and tailored cover letter.</p>
+                </div>
+                <embed class="pdf-container" src="assets/National Job Listing and Cover Letter.pdf"
+                    type="application/pdf" />
+                <p class="fallback-link">Unable to view PDF? <a href="assets/National Job Listing and Cover Letter.pdf"
+                        target="_blank">Download here</a>.</p>
+            </div>
+
+            <!-- Speaker Invitation -->
+            <div class="pdf-section">
+                <div class="pdf-header">
+                    <h3><span style="font-size: 1.5em;">🎤</span> Speaker Invitation</h3>
+                    <p>Official invitation for speaking engagement.</p>
+                </div>
+                <embed class="pdf-container" src="assets/Speaker Invitation.pdf" type="application/pdf" />
+                <p class="fallback-link">Unable to view PDF? <a href="assets/Speaker Invitation.pdf"
+                        target="_blank">Download here</a>.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Adam's Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
